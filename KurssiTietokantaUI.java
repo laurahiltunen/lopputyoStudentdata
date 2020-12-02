@@ -14,6 +14,8 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
     Kasittelija kas = new Kasittelija();
     Kayttaja kayttaja = new Kayttaja("laura.hiltunen", new char[]{'s','a','l','a','s','a','n','a'});
     
+   
+    
     public KurssiTietokantaUI() {
         initComponents();
         //Laitetaan ohjelman alussa kirjautumisikkuna näkyviin ja muut piiloon
@@ -25,16 +27,21 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
         
         jTextField10.setEnabled(false);
         choice1.setEnabled(false);
-        choice2.setEnabled(false);
+        jTextField11.setEnabled(false);
         
         jTextField7.setEnabled(false);
         jTextField9.setEnabled(false);
         jButton10.setEnabled(false);
         
-        //asetetaan olemassa olevat opettajat valintaikkunaan
+         //asetetaan olemassa olevat opettajat valintaikkunaan
             for(int i = 0; i < kas.getOpeLista().size(); i++) {
                 choice3.add(kas.getOpeLista().get(i).toString());
             }
+        
+            for(int i = 0; i < kas.getOpeLista().size(); i++) {
+                choice1.add(kas.getOpeLista().get(i).toString());
+            }
+        
     }
 
     /**
@@ -78,12 +85,12 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         choice1 = new java.awt.Choice();
         jLabel26 = new javax.swing.JLabel();
-        choice2 = new java.awt.Choice();
         choice3 = new java.awt.Choice();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
+        jTextField11 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -142,6 +149,8 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
         jLabel3.setText("Kirjaudu sisään");
 
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setMaximumSize(new java.awt.Dimension(14, 5));
+        jLabel15.setMinimumSize(new java.awt.Dimension(14, 5));
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,52 +168,51 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel7)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel3)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPasswordField1))
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel3)
-                .addGap(19, 19, 19)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addGap(16, 16, 16)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(jButton7)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(203, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addGap(190, 190, 190))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(152, 152, 152)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -314,7 +322,7 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(10, 153, Short.MAX_VALUE)
+                .addGap(10, 152, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton12)
@@ -334,7 +342,7 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(202, 202, 202)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(choice2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextField11)
                                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -397,18 +405,16 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel25)
-                        .addGap(9, 9, 9)
-                        .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(choice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel25)
+                .addGap(9, 9, 9)
+                .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jButton12)
-                .addGap(0, 19, Short.MAX_VALUE)
+                .addGap(0, 23, Short.MAX_VALUE)
                 .addComponent(jLabel26)
                 .addGap(64, 64, 64))
         );
@@ -494,8 +500,6 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-
-        jLabel20.setText("jLabel20");
 
         jButton8.setBackground(new java.awt.Color(0, 102, 255));
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
@@ -688,10 +692,7 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
         jPanel5.setVisible(false);
         
         
-        //opettajat näkyviin valintatyökaluun
-         for(int i = 0; i < kas.getOpeLista().size(); i++) {
-            choice3.add(kas.getOpeLista().get(i).toString());
-        }
+        
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -836,28 +837,24 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        //Muutetaan valitun kurssin tietoja
-
-        // Tarkistaa, että laajuus- ja opettajakenttiin syötetyt tiedot ovat oikeanlaisia
-        // jos ovat, niin kurssin tiedot muutetaan
-
-        int arvo = choice2.getSelectedIndex();
-
-        if (arvo < 0) {
-            jLabel26.setText("Aseta laajuus");
-        } else if (jTextField10.getText().length() < 2) {
-            jLabel26.setText("Kurssilla on oltava nimi!");
-        } else{
-            // Tallennetaan tehdyt muutokset kurssilistalle
+        //Muutetaan valitun kurssin tietoja ja tallennetaan tehdyt muutokset kurssilistalle
+            
+            int arvo = Integer.parseInt(jTextField11.getText());
+            
+            System.out.println(arvo);
+            
             String valittu = list2.getSelectedItem();
             String uusiNimi = jTextField10.getText();
-            kas.etsiKurssi(valittu).setNimi(uusiNimi);
-            kas.etsiKurssi(valittu).setLaajuus(arvo);
-            kas.etsiKurssi(valittu).setOpettaja(kas.palautaHenkilo(choice1.getSelectedItem()));
-
-            System.out.println(kas.etsiKurssi(valittu));
-            System.out.println(kas.palautaHenkilo(choice1.getSelectedItem()));
-        }
+            
+            Kurssi kurssi = kas.etsiKurssi(valittu);
+            kurssi.setNimi(uusiNimi);
+            kurssi.setLaajuus(arvo);
+            kurssi.setOpettaja(kas.palautaHenkilo(choice1.getSelectedItem()));
+            
+            kas.lisaaKurssi(kurssi);
+            
+           
+        
 
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -869,28 +866,21 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
 
         jTextField10.setEnabled(true);
         choice1.setEnabled(true);
-        choice2.setEnabled(true);
+        jTextField11.setEnabled(true);
 
         try {
             // Asetetaan valitun kurssin tiedot muokattavaksi tekstikenttiin
             String valittu = list2.getSelectedItem();
+            
+            jTextField10.setText(kas.palautaKurssi(valittu).getNimi());
+            jTextField11.setText(String.valueOf(kas.palautaKurssi(valittu).getLaajuus()));
+            
 
-            jTextField10.setText(kas.etsiKurssi(valittu).getNimi());
-
-            //asetetaan olemassa olevat opettajat valintaikkunaan
-            for(int i = 0; i < kas.getOpeLista().size(); i++) {
-                choice1.add(kas.getOpeLista().get(i).toString());
-            }
-
-            //asetetaan kurssin laajuus valintaikkunaan
-            for(int i = 0; i < 10; i++ ) {
-                choice2.add(Integer.toString(i));
-            }
         } catch (Exception e){
             jLabel19.setText("Valitse ensin henkilö");
         }
         
-        list2.removeAll();
+        
 
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -901,7 +891,7 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Lisää kurssin, jonka nimen ja laajuuden käyttäjä on antanut. Tulostaa lopuksi lisätyn kurssin nimen
-        Kurssi kurssi = new Kurssi(jTextField1.getText(), parseInt(jTextField2.getText()), kas.palautaHenkilo(choice3.getSelectedItem()));
+        Kurssi kurssi = new Kurssi(jTextField1.getText(), Integer.parseInt(jTextField2.getText()), kas.palautaHenkilo(choice3.getSelectedItem()));
         kas.lisaaKurssi(kurssi);
         jLabel1.setText("Lisäsit kurssin " + kurssi.getNimi() + " (" + kurssi.getLaajuus() + "), ");
         jLabel28.setText("Opettaja: " + kurssi.getOpettaja());
@@ -973,7 +963,6 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Choice choice1;
-    private java.awt.Choice choice2;
     private java.awt.Choice choice3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1026,6 +1015,7 @@ public class KurssiTietokantaUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

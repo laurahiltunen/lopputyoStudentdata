@@ -50,21 +50,21 @@ public class Kasittelija {
         opiskelijaLista.add(new Opiskelija("Jaakko", "Peltoniemi", valitsija.nextInt(300), luokka2));
         opiskelijaLista.add(new Opiskelija("Riku", "Juusela", valitsija.nextInt(300), luokka1));
         
-        
+        Opettaja ope = new Opettaja("Minni", "Kaskinen");
         //Luodaan kursseja valmiiksi
-        kurssiLista.add(new Kurssi("Tietokantojen perusteet", 5));
-        kurssiLista.add(new Kurssi("Kasvatustieteen jatkokurssi", 7));
-        kurssiLista.add(new Kurssi("Toinen kotimainen kieli (suul.)", 3));
-        kurssiLista.add(new Kurssi("Kirjoitusviestintä", 2));
-        kurssiLista.add(new Kurssi("Visuaaliset tutkimusmenetelmät", 5));
-        kurssiLista.add(new Kurssi("Johdatus psykologiaan", 4));
+        kurssiLista.add(new Kurssi("Tietokantojen perusteet", 5, ope));
+        kurssiLista.add(new Kurssi("Kasvatustieteen jatkokurssi", 7, ope));
+        kurssiLista.add(new Kurssi("Toinen kotimainen kieli (suul.)", 3, ope));
+        kurssiLista.add(new Kurssi("Kirjoitusviestintä", 2, ope));
+        kurssiLista.add(new Kurssi("Visuaaliset tutkimusmenetelmät", 5, ope));
+        kurssiLista.add(new Kurssi("Johdatus psykologiaan", 4, ope));
     }
     
     public void lisaaKurssi(Kurssi kurssi) {
         kurssiLista.add(kurssi);
     }
     
-    public void lisaaOpe(Opettaja ope) {
+    public void lisaaOpe(Henkilo ope) {
         opeLista.add(ope);
     }
     
@@ -116,20 +116,42 @@ public class Kasittelija {
         return new Henkilo();
     }
     
-    public Kurssi etsiKurssi(String hakusana) {
+    public Kurssi palautaKurssi(String hakusana) {
+        
         
         for(int i = 0; i < kurssiLista.size(); i++) {
             
-            if(kurssiLista.get(i).toString().contains(hakusana)) {
+            if(kurssiLista.get(i).toString().contentEquals(hakusana)) {
                 
                 return kurssiLista.get(i);
             }
             
         };
-        
-        return new Kurssi("Uusi kurssi", 0);
+        Opettaja opettaja = new Opettaja("Testi", "Ope");
+        return new Kurssi("Kurssia ei löytynyt", 0, opettaja);
     }
     
+    
+    public Kurssi etsiKurssi(String hakusana) {
+        
+        Opettaja opettaja = new Opettaja("Testi", "Ope");
+        Kurssi kurssi = new Kurssi("Uusi", 0, opettaja);
+        
+        for(int i = 0; i < kurssiLista.size(); i++) {
+            
+            if(kurssiLista.get(i).toString().contains(hakusana)) {
+                kurssi = kurssiLista.get(i);
+                
+                
+                
+            }
+            
+        };
+        
+        return kurssi;
+    }
+    
+     
     public Luokka palautaLuokka(int hakunumero) {
         
         if(hakunumero == 0) {

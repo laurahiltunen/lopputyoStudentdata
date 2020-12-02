@@ -32,12 +32,10 @@ public class Luokka {
         this.luokkatunnus = luokkatunnus;
     }
 
-  
+    public String toString() {
+        return getLuokka_aste() + getLuokkatunnus();
+    }
     
-   
-    
-
-    
-    
+ 
     
 }

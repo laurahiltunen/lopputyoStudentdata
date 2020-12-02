@@ -15,12 +15,12 @@ public class Kurssi {
         this.opettaja = opettaja;
     }
     
-     public Kurssi(String nimi, int laajuus) {
-        
-        this.nimi = nimi;
-        this.laajuus = laajuus;
-        this.opettaja = new Opettaja("Annika", "Turunen");
-    }
+    // public Kurssi(String nimi, int laajuus) {
+    //    
+    //    this.nimi = nimi;
+    //    this.laajuus = laajuus;
+    //    this.opettaja = new Opettaja("Annika", "Turunen");
+    //}
 
     public String getNimi() {
         return nimi;
@@ -47,8 +47,7 @@ public class Kurssi {
     }
     
     public String toString() {
-        return getNimi() + " (" + getLaajuus() + " op) ," + "\n "
-        + "Opettaja: " + getOpettaja();
+        return getNimi() + " (" + getLaajuus() + " op), Opettaja: " + getOpettaja();
     }
     
 }
